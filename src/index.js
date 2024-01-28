@@ -1,11 +1,20 @@
 const express = require("express");
-
-
-const app = express();
+const handlebars = require("express-handlebars");
+const path = require("path");
 const port = 5000;
 
+const app = express();
+
+
+app.engine("hbs",handlebars.engine({
+    extname: "hbs",
+}));
+
+app.set("view engine","hbs");
+app.set("views",path.join(__dirname, "views"))
+
 app.get("/",(req,res)=>{
-res.send("Home page");
+res.render("home",{layout: false})
 
 })
 
