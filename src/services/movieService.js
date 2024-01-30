@@ -1,5 +1,7 @@
 const movies=[
-    { title: 'Jungle Cuise',
+    { 
+      _id: 1,
+      title: 'Jungle Cuise',
       genre: 'Adventure',
       director: 'Dweyne Johnson',
       date: '2020',
@@ -13,6 +15,7 @@ const movies=[
   return movies.slice();
 } 
  exports.createMovie = (movieData)=>{
+  movieData._id= movies[movies.length -1]._id + 1;
  movies.push(movieData);
 }
 
