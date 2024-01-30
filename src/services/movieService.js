@@ -8,6 +8,7 @@ const movies=[
       description: 'Dreaming about saving countless lives and having another adventure'
     }
 ]
+
  exports.getAllMovies=()=>{
   return movies.slice();
 } 
