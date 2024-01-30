@@ -1,4 +1,4 @@
-movies=[
+const movies=[
     { title: 'Jungle Cuise',
       genre: 'Adventure',
       director: 'Dweyne Johnson',
@@ -8,11 +8,10 @@ movies=[
       description: 'Dreaming about saving countless lives and having another adventure'
     }
 ]
-
-function createMovie(movieData){
+ exports.getAllMovies=()=>{
+  return movies.slice();
+} 
+ exports.createMovie = (movieData)=>{
  movies.push(movieData);
-
-
 }
 
-module.exports= createMovie
