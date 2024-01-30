@@ -12,6 +12,14 @@ router.post("/create", (req,res)=>{
   res.redirect("/")
 });
 
+router.get("/details/:movieId",(req,res)=>{
+const movieId = req.params.movieId;
+ const movie = movieService.getSingleMovie(movieId);
+ console.log(movie)
+ 
+    res.render("details",{ movie })
+
+})
 
 
 module.exports = router

@@ -19,3 +19,12 @@ const movies=[
  movies.push(movieData);
 }
 
+exports.getSingleMovie=(movieId)=>{
+  const movie = movies.find(movie => movie._id == movieId);
+ 
+    return movie
+ 
+  
+  
+}
+
