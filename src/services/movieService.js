@@ -23,8 +23,22 @@ exports.getSingleMovie=(movieId)=>{
   const movie = movies.find(movie => movie._id == movieId);
  
     return movie
- 
-  
   
 }
 
+exports.search = (title,genre,year)=>{
+  let movie = movies.slice();
+  if(title){
+   movie = movie.filter(x => x.title.toLowerCase().includes(title))
+  }
+
+  if(genre){
+   movie = movie.filter(x => x.genre.toLowerCase() === genre);
+  }
+  
+  if(year){
+   movie = movie.filter(x=> x.date === year)
+  }
+
+  return movie
+}
