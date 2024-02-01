@@ -12,9 +12,15 @@ router.get("/",(req,res)=>{
     });
     
 
+  
+
+    router.get("/search",(req,res)=>{
+        const movies = movieService.getAllMovies()
+        res.render("search", { movies })
+    })
+
     router.get("*",(req,res)=>{
         res.render("404")
     });
-
 
     module.exports = router;
