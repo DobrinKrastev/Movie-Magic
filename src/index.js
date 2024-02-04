@@ -1,5 +1,6 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
+const mongoose = require("mongoose")
 const path = require("path");
 
 const port = 5000;
@@ -14,6 +15,8 @@ expressConfig(app);
 
 app.use(router);
 
-
-
-app.listen(port,()=> console.log(`App is listening on port ${port}`));
+mongoose.connect("mongodb://localhost:27017/magic-movies")
+.then(()=>{
+    console.log("DB connected")
+    app.listen(port,()=> console.log(`App is listening on port ${port}`));
+}).catch(err=> console.log("Error"));

@@ -4,19 +4,20 @@ const movies=[
       title: 'Jungle Cuise',
       genre: 'Adventure',
       director: 'Dweyne Johnson',
-      date: '2020',
+      year: '2020',
       imgUrl: '/img/jungle-cruise.jpeg',
-      rate: '5',
+      rating: '5',
       description: 'Dreaming about saving countless lives and having another adventure'
     }
 ]
+const Movie = require("../models/Movie")
 
  exports.getAllMovies=()=>{
   return movies.slice();
 } 
- exports.createMovie = (movieData)=>{
-  movieData._id= movies[movies.length -1]._id + 1;
- movies.push(movieData);
+ exports.createMovie = async (movieData)=>{
+  const result = await Movie.create(movieData);
+  return result
 }
 
 exports.getSingleMovie=(movieId)=>{
@@ -27,7 +28,7 @@ exports.getSingleMovie=(movieId)=>{
 }
 
 exports.search = (title,genre,year)=>{
-  let movie = movies.slice();
+  let movie = Movie.slice();
   if(title){
    movie = movie.filter(x => x.title.toLowerCase().includes(title))
   }
