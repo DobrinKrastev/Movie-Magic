@@ -20,7 +20,8 @@ router.get("/", async (req,res)=>{
         const movies = movieService.search(title,genre,year)
         //const movies = movieService.getAllMovies()
         res.render("search", { movies })
-    })
+    });
+    
 
 
 

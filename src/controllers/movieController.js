@@ -26,6 +26,9 @@ const movieId = req.params.movieId;
  
     res.render("details",{ movie })
 
+});
+router.get("/details/:movieId/attach", (req,res)=>{
+    res.render("movie/attach")
 })
 
 
