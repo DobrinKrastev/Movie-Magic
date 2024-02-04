@@ -12,11 +12,13 @@ const movies=[
 ]
 const Movie = require("../models/Movie")
 
- exports.getAllMovies=()=>{
-  return movies.slice();
+ exports.getAllMovies= ()=>{
+ const allMovies =  Movie.find();
+ return allMovies 
+ 
 } 
- exports.createMovie = async (movieData)=>{
-  const result = await Movie.create(movieData);
+ exports.createMovie = (movieData)=>{
+  const result = Movie.create(movieData);
   return result
 }
 

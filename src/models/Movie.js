@@ -33,7 +33,7 @@ description:{
 imageUrl:{
     type: String,
     required: true,
-    //match: /^http*s?/,
+    match: /^http*s?/,
 }
 });
 const Movie = mongoose.model("Movie",movieShema);

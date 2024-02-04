@@ -7,8 +7,7 @@ router.get("/create", (req,res)=>{
 
 router.post("/create", async (req,res)=>{
    const movieData = req.body;
-   movieData
-  console.log(req.body);
+   
   try {
     await movieService.createMovie(movieData);
     res.redirect("/")
