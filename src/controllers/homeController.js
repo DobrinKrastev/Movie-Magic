@@ -22,8 +22,6 @@ router.get("/", async (req,res)=>{
         res.render("search", { movies })
     })
 
-    router.get("*",(req,res)=>{
-        res.render("404")
-    });
+
 
     module.exports = router;

@@ -1,8 +1,8 @@
 const router = require("express").Router();
 
 
-router.get("/create/cast",(req,res)=>{
-res.render("");
+router.get("/cast/create",(req,res)=>{
+res.render("casts/cast-create");
 });
 
 module.exports = router;
