@@ -27,8 +27,10 @@ const movieId = req.params.movieId;
     res.render("details",{ movie })
 
 });
-router.get("/details/:movieId/attach", (req,res)=>{
-    res.render("movie/attach")
+router.get("/details/:movieId/attach", async (req,res)=>{
+  const movie = await movieService.getSingleMovie(req.params.movieId);
+
+    res.render("movie/attach",{ movie })
 })
 
 

@@ -20,7 +20,7 @@ const castShema = new mongoose.Schema({
     castImage:{
         type: String,
         required: true,
-        match: /^http*s?/,
+        //match: /^http*s?/,
     },
 
    
