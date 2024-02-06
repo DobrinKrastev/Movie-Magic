@@ -34,7 +34,12 @@ imageUrl:{
     type: String,
     required: true,
     match: /^http*s?/,
-}
+},
+casts: [{
+    type: mongoose.Types.ObjectId,
+    ref: "Cast",
+}]
+
 });
 const Movie = mongoose.model("Movie",movieShema);
 
