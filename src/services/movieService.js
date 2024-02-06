@@ -23,15 +23,17 @@ const Movie = require("../models/Movie")
 }
 
 exports.getSingleMovie=(movieId)=>{
-  const movie = Movie.findById(movieId).lean();
+  const movie = Movie.findById(movieId).populate("casts");
     return movie
   
 }
 
 exports.search = async (title,genre,year)=>{
   let movie = await Movie.find().lean();
+
+   if(movie){
   if(title){
-   movie = movie.filter(x => x.title.toLowerCase().includes(title.toLowerCase))
+   movie = movie.filter(x => x.title.toLowerCase().includes(title.toLowerCase()))
   }
 
   if(genre){
@@ -43,6 +45,10 @@ exports.search = async (title,genre,year)=>{
   }
 
   return movie
+}else{
+  return movie =[];
+}
+
 };
 exports.attach = async (movieId,castId) => {
 return Movie.findByIdAndUpdate(movieId,{$push:{casts: castId} })

@@ -22,14 +22,14 @@ router.post("/create", async (req,res)=>{
 
 router.get("/details/:movieId", async (req,res)=>{
 const movieId = req.params.movieId;
- const movie = await movieService.getSingleMovie(movieId);
+ const movie = await movieService.getSingleMovie(movieId).lean();
  
  
     res.render("details",{ movie })
 
 });
 router.get("/details/:movieId/attach", async (req,res)=>{
-  const movie = await movieService.getSingleMovie(req.params.movieId);
+  const movie = await movieService.getSingleMovie(req.params.movieId).lean();
   const cast = await castService.getAllCasts().lean();
 
     res.render("movie/attach",{ movie, cast })
