@@ -15,15 +15,16 @@ exports.auth = async (req,res,next)=>{
 
     req.user = decodedToken;
     next();
+
    } catch {
     res.clearCookie("auth")
     res.redirect("/login")
    }
 }
 
-exports.isAuth = (res,req,next)=>{
+exports.isAuth = (req,res,next)=>{
     if(!req.user){
-       return res.redirect("/login")
+      res.redirect("/login")
     }
     next()
 }
