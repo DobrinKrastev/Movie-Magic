@@ -55,5 +55,12 @@ router.get("/details/:movieId/edit",isAuth, async (req, res) => {
 
 });
 
+router.get("/details/:movieId/delete",isAuth, async (req,res)=>{
+ 
+  await movieService.delete(req.params.movieId);
+  
+  res.redirect("/")
+})
+
 
 module.exports = router
