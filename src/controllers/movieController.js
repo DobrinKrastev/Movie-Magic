@@ -42,6 +42,10 @@ await movieService.attach(req.params.movieId, castId);
 res.redirect("/")
 
 });
+router.get("/details/:movieId/edit",(req,res)=>{
+res.render("movie/edit")
+
+});
 
 
 module.exports = router
