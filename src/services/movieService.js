@@ -60,3 +60,7 @@ return Movie.findByIdAndUpdate(movieId,{$push:{casts: castId} })
 exports.delete = (movieId) =>{
   return Movie.findByIdAndDelete(movieId);
 }
+
+exports.edit = (movieId,editMovie) =>{
+  return Movie.findByIdAndUpdate(movieId,editMovie);
+}
