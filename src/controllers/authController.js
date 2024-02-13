@@ -7,11 +7,16 @@ router.get("/register", (req,res)=>{
 });
 
 router.post("/register", async (req,res)=>{
-    const userData = req.body;
+    try {
+        const userData = req.body;
    
-    await authService.register(userData);
-
-    res.redirect("/login")
+        await authService.register(userData);
+    
+        res.redirect("/login")
+    } catch (error) {
+        res.render("auth/register",{error: error.message})
+    }
+  
 })
 
 router.get("/login", (req,res)=>{
