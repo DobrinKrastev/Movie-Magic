@@ -7,10 +7,14 @@ const userSchema = new mongoose.Schema({
         required: true,
         lowercase: true,
         unique: true,
+        match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,"Invallid email adress"],
+        minLength:[10,"Email should be minimum 10 letters long"],
     },
     password: {
         type: String,
         required: true,
+        match:[/^[a-zA-Z0-9]+$/,"Invalid password"],
+        minLength:[6,"Password should be minimum 10 letters long"],
     },
 });
 
