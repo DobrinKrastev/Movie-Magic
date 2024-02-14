@@ -16,16 +16,18 @@ if(user){
 exports.login = async (email,password)=>{
     // GET USER FROM DB;
  const user = await User.findOne({ email });
+ const isValid = await bcrypt.compare(password, user.password);
+
 
     // CHECK IF USER AND PASSWORD ARE VALID;
   if(!user){
     throw new Error("User or Password doesn`t match");
   };
 
- const isValid = await bcrypt.compare(password, user.password);
- if(!isValid){
-    throw new Error("User or Password doesn`t match");
- }
+
+      if(!isValid){
+       throw new Error("User or Password doesn`t match");
+     }
     // GENERATE JWT TOKKEN;
     const payload ={
         _id: user._id,
