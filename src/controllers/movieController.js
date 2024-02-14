@@ -27,7 +27,7 @@ router.get("/details/:movieId", async (req, res) => {
   const movieId = req.params.movieId;
   const movie = await movieService.getSingleMovie(movieId).lean();
   const isOwner = movie.owner == req.user?._id;
-  
+  movie.rating = new Array(Number(movie.rating)).fill();
 
 
   res.render("details", { movie,isOwner})
